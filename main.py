@@ -1,16 +1,16 @@
-# This is a sample Python script.
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+from pathlib import Path
+import os
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+def copy():
+    source_path = Path.joinpath(Path.home(), "AppData", "Local", "Packages",
+                                "Microsoft.Windows.ContentDeliveryManager_cw5n1h2txyewy", "LocalState", "Assets")
+    print(Path.home())
+    target_path = Path().cwd()
+    file_pattern = "*.*"
+    for obj in source_path.iterdir():
+        if obj.is_file():
+            obj.rename(target_path / obj.name)
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+copy()
