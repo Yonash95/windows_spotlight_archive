@@ -2,6 +2,8 @@ from pathlib import Path
 
 
 def copy():
+    """ This funcion only let you move files on one drive"""
+
     source_path = Path.joinpath(Path.home(), "AppData", "Local", "Packages",
                                 "Microsoft.Windows.ContentDeliveryManager_cw5n1h2txyewy", "LocalState", "Assets")
     target_path = Path().cwd()
