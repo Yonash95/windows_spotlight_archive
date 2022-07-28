@@ -3,7 +3,8 @@ from shutil import copytree
 
 
 def copy():
-    """ This funcion only let you move files on one drive"""
+    """ Files are first copied from source folder to 'img' folder in script destination,
+        and then renamed with '.jpg' suffix. Folder img should be cleared before next script execution """
 
     source_path = Path.joinpath(Path.home(), "AppData", "Local", "Packages",
                                 "Microsoft.Windows.ContentDeliveryManager_cw5n1h2txyewy", "LocalState", "Assets")
