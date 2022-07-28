@@ -10,9 +10,9 @@ def copy():
     target_path = Path.joinpath(Path().cwd(), 'img')
     new_suffix = ".jpg"
     copytree(source_path, target_path, dirs_exist_ok=True)  # copy first so original files remain intact
-    for obj in target_path.iterdir():
+    for i, obj in enumerate(target_path.iterdir()):
         if obj.is_file():
-            new_name = f"{obj.stem}{new_suffix}"
+            new_name = f"img_{i}{new_suffix}"
             print(new_name)
             obj.rename(target_path / new_name)
 
