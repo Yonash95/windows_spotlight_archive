@@ -1,5 +1,5 @@
 from pathlib import Path
-import shutil
+from shutil import copytree
 
 
 def copy():
@@ -9,7 +9,7 @@ def copy():
                                 "Microsoft.Windows.ContentDeliveryManager_cw5n1h2txyewy", "LocalState", "Assets")
     target_path = Path.joinpath(Path().cwd(), 'img')
     new_suffix = ".jpg"
-    shutil.copytree(source_path, target_path, dirs_exist_ok=True)
+    copytree(source_path, target_path, dirs_exist_ok=True)  # copy first so original files remain intact
     for obj in target_path.iterdir():
         if obj.is_file():
             new_name = f"{obj.stem}{new_suffix}"
@@ -18,4 +18,3 @@ def copy():
 
 
 copy()
-
